@@ -3,7 +3,7 @@
 
     const questions= ref([ 
         {    
-          question: "What is the capital city of Moldova?",
+          question: "What is the capital of Moldova?",
           answer: 1,    
           options: [      
             "Chisinau",
@@ -13,7 +13,7 @@
         selected: null
       },
       {
-        question: "What is the capital city of Kyrgyzstan?",
+        question: "What is the capital of Kyrgyzstan?",
         answer: 2,
         options: [
           "Osh",
@@ -23,7 +23,7 @@
         selected: null
       },
       {
-        question: "What is the capital city of Montenegro?",
+        question: "What is the capital of Montenegro?",
         answer: 0,
         options: [
           "Podgorica",
@@ -33,7 +33,7 @@
         selected: null
       },
       {
-        question: "What is the capital city of Burkina Faso?",
+        question: "What is the capital of Burkina Faso?",
         answer: 2,
         options: [
           "Bobo-Dioulasso",
@@ -43,7 +43,7 @@
         selected: null
       },
       {
-        question: "What is the capital city of Bhutan?",
+        question: "What is the capital of Bhutan?",
         answer: 1,
         options: [
           "Punakha",
@@ -53,7 +53,7 @@
         selected: null
       },
       {
-        question: "What is the capital city of Laos?",
+        question: "What is the capital of Laos?",
         answer: 0,
         options: [
           "Vientiane",
@@ -63,7 +63,7 @@
         selected: null
       },
       {
-        question: "What is the capital city of Suriname?",
+        question: "What is the capital of Suriname?",
         answer: 2,
         options: [
           "Paramaribo",
@@ -73,7 +73,7 @@
         selected: null
       },
       {
-        question: "What is the capital city of Eritrea?",
+        question: "What is the capital of Eritrea?",
         answer: 1,
         options: [
           "Asmara",
@@ -83,7 +83,7 @@
         selected: null
       },
       {
-        question: "What is the capital city of Gambia?",
+        question: "What is the capital of Gambia?",
         answer: 2,
         options: [
           "Brikama",
@@ -93,7 +93,7 @@
         selected: null
       },
       {
-        question: "What is the capital city of Cape Verde?",
+        question: "What is the capital of Cape Verde?",
         answer: 0,
         options: [
           "Praia",
@@ -110,13 +110,13 @@
     const currentQuestion = ref(0)
 
     const score = computed(()=> {
-      let value = 0
+      let valueScore = 0
       questions.value.map(q =>{
         if(q.selected == q.answer){
-          value++
+          valueScore++
         }
       })
-      return value
+      return valueScore
     })
 
     const getCurrentQuestion = computed(()=>{
@@ -202,15 +202,103 @@
 </template>
 
 <style>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Monserrat', sans-serif;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background-color: #271c36;
+      color: #FFF;
+    }
+    .app {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      max-height: 100vh;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .quiz {
+      background-color: #382a4b;
+      padding: 1rem;
+      width: 100%;
+      max-width: 640px;
+    }
+    .quiz-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .quiz-info .question {
+      color: #8F8F8F;
+      font-size: 1.25rem;
+    }
+    .quiz-info.score {
+      color: #FFF;
+      font-size: 1.25rem;
+    }
 
-  body{
-    background-color: #271C36;
-    color: #FFF
-  }
+    .score{
+      padding-left: 2rem;
+    }
+    .options {
+      margin-bottom: 1rem;
+    }
+    .option {
+      padding: 1rem;
+      display: block;
+      background-color: #271c36;
+      margin-bottom: 0.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+    .option:hover {
+      background-color: #2d213f;
+    }
+    .option.correct {
+      background-color: #2cce7d;
+    }
+    .option.wrong {
+      background-color: #ff5a5f;
+    }
+    .option:last-of-type {
+      margin-bottom: 0;
+    }
+    .option.disabled {
+      opacity: 0.5;
+    }
+    .option input {
+      display: none;
+    }
+    button {
+      appearance: none;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      background-color: #2cce7d;
+      color: #2d213f;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      border-radius: 0.5rem;
+    }
+    button:disabled {
+      opacity: 0.5;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    p {
+      color: #8F8F8F;
+      font-size: 1.5rem;
+      text-align: center;
+    }
 </style>
